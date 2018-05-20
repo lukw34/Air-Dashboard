@@ -35,7 +35,10 @@
     "import/prefer-default-export": "warn",
     "react-native/no-inline-styles": "off",
     "no-invalid-this": "off",
+    "react/no-did-mount-set-state": "off",
     "semi": "error",
+    "max-len": "off",
+    "object-curly-newline":"off",
     "quotes": "error"
   }
 }

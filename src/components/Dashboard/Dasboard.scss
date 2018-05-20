@@ -2,15 +2,32 @@ main {
   flex: 1 1 auto;
   margin: 15px 50px;
   display: flex;
-  font-size: large;;
+  font-size: large;
   flex-direction: row;
   justify-content: center;
 }
 
 .Dashboard {
   .side-chart-container {
+    transition: opacity 1s ease-out;
     flex: 3;
+    min-width: 250px;
+    opacity: 1;
+    display: flex;
+    animation: 1s ease-out 0s 1 slideInFromRight;
+    flex-direction: column;
+  }
+  .middle {
+    flex: 8 1;
     display: flex;
     flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .Dashboard {
+    .side-chart-container {
+      opacity: 0
+    }
   }
 }

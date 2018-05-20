@@ -1,0 +1,11 @@
+.SearchInput {
+  .drop-down {
+    width: 50vh !important;
+    &:before {
+      content: 'Select station in below dropdown list...';
+      font-family: seans-sarif;
+      font-size: 1.2rem;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
