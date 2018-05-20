@@ -1,22 +1,30 @@
 .Header {
   background-color: #222;
-  height: 150px;
-  padding: 20px;
+  flex: 0 1 auto;
+  padding: 10px;
+  display: flex;
   color: white;
+  justify-content: center;
   .logo {
-    animation: Header-logo-spin infinite 20s linear;
-    height: 80px;
+    animation: Header-logo-spin infinite 3s linear;
+    height: 45px;
+    padding: 25px;
   }
   .title {
-    font-size: 1.5em;
+    text-align: center;
+    font-size: 2em;
+
   }
 }
 
 @keyframes Header-logo-spin {
-  from {
-    transform: rotate(0deg);
+  0% {
+    transform: scale(1);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: scale(.75);
+  }
+  100% {
+    transform: scale(1);
   }
 }

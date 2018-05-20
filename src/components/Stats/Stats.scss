@@ -1,0 +1,32 @@
+.Stats {
+  flex: 1;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  .items {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    .item {
+      display: block;
+      animation: 1s ease-out 0s 1 slideInFromLeft;
+      flex: 1 1 auto;
+      color: white;
+      border-bottom: white 2px solid;
+    }
+  }
+
+  footer {
+
+  }
+}
+
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

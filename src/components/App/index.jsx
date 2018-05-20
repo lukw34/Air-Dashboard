@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Dashboard from '../Dashboard';
 import Header from '../Header';
 import './App.scss';
 
@@ -8,9 +8,8 @@ const App = () => (
         <Header
             title="Dashboard"
         />
-        <p className="intro">
-            ....
-        </p>
+        <div> Search box</div>
+        <Dashboard />
     </div>
 );
 

@@ -1,17 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import bitcoin from '../../assets/svg/bitcoin.svg';
+import gas from '../../assets/svg/gas.svg';
 import './Header.scss';
 
 const Header = ({title}) => (
     <header className="Header">
         <img
-            src={bitcoin}
+            src={gas}
             className="logo"
             alt="logo"
         />
         <h1 className="title">{title}</h1>
+        <img
+            src={gas}
+            className="logo"
+            alt="logo"
+        />
     </header>
 );
 
