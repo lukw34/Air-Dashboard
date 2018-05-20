@@ -1,29 +1,32 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 import DashboardComp from '../components/Dashboard';
 
+const mapStateToProps = ({sensors: {sensors}, activeSensor}) => ({
+    sensors,
+    activeSensor
+});
+
 
 class Dashboard extends React.Component {
-    state = [{
-        id: 92,
-        isActive: true,
-        stationId: 14,
-        paramName: 'pył zawieszony PM10',
-        paramCode: 'PM10',
+    static propTypes = {
+        sensors: PropTypes.shape({}),
+        activeSensor: PropTypes.string
+    };
 
-    }, {
-        id: 88,
-        isActive: false,
-        stationId: 14,
-        paramName: 'dwutlenek azotu',
-        paramCode: 'NO2',
-
-    }];
+    mapSensors = () => {
+        const {sensors, activeSensor} = this.props;
+        return Object.keys(sensors).map(key => ({
+            ...sensors[key],
+            isActive: key === activeSensor
+        }));
+    };
 
     render() {
-        const sideBoxes = this.state;
-        return <DashboardComp sideBoxes={sideBoxes} />;
+        return <DashboardComp sensors={this.mapSensors()} />;
     }
 }
 
-export default Dashboard;
+export default connect(mapStateToProps)(Dashboard);

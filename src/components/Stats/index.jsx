@@ -7,13 +7,13 @@ const Stats = ({min, max, average}) => (
     <div className="Stats">
         <div className="items">
             <div className="item" data-name="min">
-                {min}
+                {min || '?'}
             </div>
             <div className="item" data-name="max">
-                {max}
+                {max || '?'}
             </div>
             <div className="item" data-name="avg">
-                {average}
+                {average || '?'}
             </div>
         </div>
     </div>

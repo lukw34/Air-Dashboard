@@ -8,7 +8,7 @@ import SearchInput from '../../containers/SearchInput';
 
 import './Dasboard.scss';
 
-const Dashboard = ({sideBoxes = []}) => (
+const Dashboard = ({sensors = []}) => (
     <main className="Dashboard">
         <Stats />
         <div className="middle">
@@ -19,9 +19,9 @@ const Dashboard = ({sideBoxes = []}) => (
             />
         </div>
         {
-            sideBoxes.length > 0 && (
+            sensors.length > 0 && (
                 <div className="side-chart-container">
-                    {sideBoxes.map(box => <SideBox key={box.id} {...box} />)}
+                    {sensors.map(box => <SideBox key={box.id} {...box} />)}
                 </div>
             )
         }
@@ -29,8 +29,8 @@ const Dashboard = ({sideBoxes = []}) => (
 );
 
 Dashboard.propTypes = {
-    sideBoxes: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string
+    sensors: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number
     }))
 };
 
