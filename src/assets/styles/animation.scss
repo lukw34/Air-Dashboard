@@ -8,12 +8,22 @@
   }
 }
 
-
 @keyframes slideInFromRight {
   0% {
     transform: translateX(150%);
+    opacity: 0;
   }
   100% {
     transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(150%);
+  }
+  100% {
+    transform: translateY(0);
   }
 }

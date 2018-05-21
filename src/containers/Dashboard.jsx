@@ -1,32 +1,16 @@
-import React from 'react';
 import {connect} from 'react-redux';
-import PropTypes from 'prop-types';
 
+import {selectSensors} from '../selectors/sensors.selectors';
 import DashboardComp from '../components/Dashboard';
+import {setActiveSensor} from '../actions/sensors.actions';
 
-const mapStateToProps = ({sensors: {sensors}, activeSensor}) => ({
-    sensors,
-    activeSensor
+const mapStateToProps = state => ({
+    sensors: selectSensors(state)
+});
+
+const mapDispatchToProps = dispatch => ({
+    onSideBoxClick: id => dispatch(setActiveSensor(id))
 });
 
 
-class Dashboard extends React.Component {
-    static propTypes = {
-        sensors: PropTypes.shape({}),
-        activeSensor: PropTypes.string
-    };
-
-    mapSensors = () => {
-        const {sensors, activeSensor} = this.props;
-        return Object.keys(sensors).map(key => ({
-            ...sensors[key],
-            isActive: key === activeSensor
-        }));
-    };
-
-    render() {
-        return <DashboardComp sensors={this.mapSensors()} />;
-    }
-}
-
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardComp);

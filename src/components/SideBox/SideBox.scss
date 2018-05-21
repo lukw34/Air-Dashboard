@@ -9,8 +9,9 @@
   align-items: center;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   transition: transform .7s ease-in;
+
   &.active {
-   transform: scale(0.85);
+    transform: scale(0.85);
   }
   .type {
     font-size: 2rem;

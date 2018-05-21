@@ -20,9 +20,9 @@ const Stats = ({min, max, average}) => (
 );
 
 Stats.propTypes = {
-    min: PropTypes.number,
-    max: PropTypes.number,
-    average: PropTypes.number
+    min: PropTypes.string,
+    max: PropTypes.string,
+    average: PropTypes.string
 };
 
 export default Stats;

@@ -1,31 +1,29 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+
+import {isPlotInit, activePlotData} from '../selectors/plot.selectors';
 
 import LineGraph from '../components/LineGraph';
 
-class DateChart extends React.Component {
+const mapStateToProps = state => ({
+    isPlot: isPlotInit(state),
+    data: activePlotData(state)
+});
+
+class DateChart extends React.PureComponent {
     static mapCharts = {
         PM10: LineGraph
     };
 
+    static propTypes = {
+        data: PropTypes.arrayOf(PropTypes.shape({})),
+        isPlot: PropTypes.bool
+    };
+
     render() {
-        const data = [
-            { date: '2017-04-18', value: '2.8' },
-            { date: '2017-04-19', value: '2.9' },
-            { date: '2017-04-20', value: '2.7' },
-            { date: '2017-04-21', value: '4.3' },
-            { date: '2017-04-22', value: '4.6' },
-            { date: '2017-04-23', value: '5' },
-            { date: '2017-04-24', value: '5.2' },
-            { date: '2017-04-25', value: '5.1' },
-            { date: '2017-04-26', value: '4.8' },
-            { date: '2017-04-27', value: '4.9' },
-            { date: '2017-04-28', value: '5.1' },
-            { date: '2017-04-29', value: '5.3' },
-            { date: '2017-04-30', value: '5.6' },
-            { date: '2017-05-01', value: '6.2' }
-        ];
-        return <LineGraph data={data} />;
+        return this.props.isPlot ? <LineGraph data={this.props.data} /> : null;
     }
 }
 
-export default DateChart;
+export default connect(mapStateToProps)(DateChart);

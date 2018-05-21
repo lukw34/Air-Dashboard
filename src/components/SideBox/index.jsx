@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 import './SideBox.scss';
 
-const SideChart = ({paramCode, onClick, value, isActive = false, paramName}) => (
+const SideBox = ({paramCode, id, onClick, value, isActive = false, paramName}) => (
     <div
         role="button"
         tabIndex="0"
         className={`SideBox ${isActive && 'active'}`}
-        onClick={onClick}
-        onKeyPress={onClick}
+        onClick={() => onClick(id)}
+        onKeyPress={() => {}}
     >
         <div className="type" data-name={paramName}>
             {paramCode}
@@ -20,12 +20,13 @@ const SideChart = ({paramCode, onClick, value, isActive = false, paramName}) => 
     </div>
 );
 
-SideChart.propTypes = {
+SideBox.propTypes = {
     paramCode: PropTypes.string,
     onClick: PropTypes.func,
     isActive: PropTypes.bool,
     value: PropTypes.number,
+    id: PropTypes.string,
     paramName: PropTypes.string
 };
 
-export default SideChart;
+export default SideBox;

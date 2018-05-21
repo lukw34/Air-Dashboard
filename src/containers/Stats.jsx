@@ -1,13 +1,12 @@
-import React from 'react';
+import {connect} from 'react-redux';
 
 import StatsComponent from '../components/Stats';
+import {getMinValue, getAverageValue, getMaxValue} from '../selectors/plot.selectors';
 
-class Stats extends React.Component {
-    state = {};
+const mapStateToProps = state => ({
+    min: getMinValue(state),
+    max: getMaxValue(state),
+    average: getAverageValue(state)
+});
 
-    render() {
-        return <StatsComponent {...this.state} />;
-    }
-}
-
-export default Stats;
+export default connect(mapStateToProps)(StatsComponent);
