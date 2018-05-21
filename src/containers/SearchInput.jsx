@@ -16,7 +16,7 @@ const mapDispatchToProps = dispatch => ({
 class SearchInput extends React.Component {
     static propTypes = {
         getSensors: PropTypes.func,
-        stationId: PropTypes.number
+        stationId: PropTypes.string
     };
 
     state = {
@@ -36,7 +36,7 @@ class SearchInput extends React.Component {
             const resp = await fetch('/pjp-api/rest/station/findAll');
             const body = await resp.json();
             this.setState({
-                data: body.map(({id: value, stationName: primaryText}) => ({value, primaryText}))
+                data: body.map(({id, stationName: primaryText}) => ({value: id.toString(), primaryText}))
             });
         } catch (e) {
             this.setState({

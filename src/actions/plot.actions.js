@@ -7,7 +7,7 @@ const startFetching = () => ({
 
 const setPlotData = (id, plotData) => ({
     type: SET_PLOT_DATA,
-    id,
+    id: id.toString(),
     plotData
 });
 

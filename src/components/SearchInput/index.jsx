@@ -12,6 +12,7 @@ const SearchInput = ({data = [], onChange, value}) => (
             placeholder="Select station"
             className="drop-down"
             onChange={onChange}
+            disabled={data.length < 1}
             value={value}
             menuItemStyle={{width: '50vh'}}
         >
@@ -23,7 +24,7 @@ const SearchInput = ({data = [], onChange, value}) => (
 SearchInput.propTypes = {
     data: PropTypes.arrayOf(PropTypes.shape({})),
     onChange: PropTypes.func,
-    value: PropTypes.number
+    value: PropTypes.string
 };
 
 export default SearchInput;

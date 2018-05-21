@@ -19,11 +19,12 @@ class LineGraph extends React.PureComponent {
     static propTypes = {
         data: PropTypes.arrayOf(PropTypes.shape({
             date: PropTypes.string,
-            value: PropTypes.string
-        }))
+            value: PropTypes.number
+        })),
+        title: PropTypes.string
     };
 
-    static defaultProp = {
+    static defaultProps = {
         data: []
     };
 
@@ -59,41 +60,46 @@ class LineGraph extends React.PureComponent {
     };
 
     render() {
-        const {data} = this.props;
+        const {data, title} = this.props;
         return (
-            <svg
-                className="LineGraph"
-            >
-                <g
-                    className="xAxis"
-                    ref={node => d3Select(node)
-                        .call(this.getXAxis())}
-                />
-                <g
-                    className="yAxis"
-                    ref={node => d3Select(node)
-                        .call(this.getYAxis())}
-                />
-                <g className="line">
-                    <path
-                        d={this.getPath()}
+            <div className="LineGraph">
+                <div className="title">
+                    {title}
+                </div>
+                <svg
+                    className="graph"
+                >
+                    <g
+                        className="xAxis"
+                        ref={node => d3Select(node)
+                            .call(this.getXAxis())}
                     />
-                </g>
-                <g className="scatter">
-                    {data.map((datum) => {
-                        const x = this.getXScale()(LineGraph.selectX(datum));
-                        const y = this.getYScale()(LineGraph.selectY(datum));
-                        return (
-                            <circle
-                                cx={x}
-                                cy={y}
-                                key={`${x},${y}`}
-                                r={4}
-                            />
-                        );
-                    })}
-                </g>
-            </svg>
+                    <g
+                        className="yAxis"
+                        ref={node => d3Select(node)
+                            .call(this.getYAxis())}
+                    />
+                    <g className="line">
+                        <path
+                            d={this.getPath()}
+                        />
+                    </g>
+                    <g className="scatter">
+                        {data.map((datum) => {
+                            const x = this.getXScale()(LineGraph.selectX(datum));
+                            const y = this.getYScale()(LineGraph.selectY(datum));
+                            return (
+                                <circle
+                                    cx={x}
+                                    cy={y}
+                                    key={`${x},${y}`}
+                                    r={4}
+                                />
+                            );
+                        })}
+                    </g>
+                </svg>
+            </div>
         );
     }
 }

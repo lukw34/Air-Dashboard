@@ -6,18 +6,69 @@
   margin: 10px 20px;
   background: #0000008c;
   color: white;
+  flex-direction: column;
+  max-height: 300px;
   align-items: center;
+  animation: showUpScale 1s ease-in 0s 1;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-  transition: transform .7s ease-in;
+  transition: transform .7s ease-in-out;
+  outline: none !important;
 
   &.active {
     transform: scale(0.85);
+    animation: toActive 1s ease-out 0s 1;
+  }
+  .value-container {
+    padding: 5px 45px;
+    font-size: 15px;
+    border-top: white 2px solid;
+    flex-direction: column;
+    display: flex;
+    transition: transform .5s .5s ease-in-out;
+    transform: translateX(150%);
+    &.ready {
+      transform: translateX(0);
+      .rate {
+        transform: scale(1);
+        &.plus {
+          background-color: green;
+        }
+
+        &.minus {
+          background-color: red;
+        }
+      }
+    }
+
+    .rate {
+      width: 40px;
+      margin: 5px;
+      line-height: 40px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 12px;
+      padding: 2px;
+      transition: transform .4s 1s ease-in-out;
+      transform: scale(0);
+      border: 2px solid #666;
+
+    }
   }
   .type {
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-transform: capitalize;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
     font-family: seans-sarif;
     font-weight: 600;
+    margin-bottom: 4px;
+  }
+}
+
+@keyframes toActive {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.85);
   }
 }

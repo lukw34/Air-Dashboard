@@ -3,11 +3,12 @@ import {getActiveSensor} from './sensors.selectors';
 
 const getPlotData = ({plot: {data}}) => data;
 
+const getIsFetching = ({plot: {isFetching}}) => isFetching || false;
+
 const isPlotInit = createSelector(
     getPlotData,
     data => data !== null
 );
-
 
 const activePlotData = createSelector(
     isPlotInit,
@@ -42,8 +43,14 @@ const getAverageValue = createSelector(
     values => (values.length > 0 ? (values.reduce((last, val) => last + val, 0) / values.length).toFixed(3) : null)
 );
 
+const isLoaderSelector = createSelector(
+    getIsFetching,
+    isFetching => isFetching
+);
+
 export {
     isPlotInit,
+    isLoaderSelector,
     activePlotData,
     getMaxValue,
     getMinValue,

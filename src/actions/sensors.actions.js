@@ -2,31 +2,26 @@ import {
     INIT_SENSORS,
     SET_ACTIVE_SENSOR,
     FETCH_SENSORS_SUCCEEDED,
-    FETCH_SENSORS_PLOT_DATA,
     FETCH_SENSOR_DATA,
     FILL_SENSOR_DATA,
 } from '../constants/actions';
 
 const fetchSensorSucceeded = (stationId, sensors, activeSensor) => ({
     type: FETCH_SENSORS_SUCCEEDED,
-    stationId,
+    stationId: stationId.toString(),
     sensors,
     activeSensor
 });
 
-const fetchSensorsPlotData = () => ({
-    type: FETCH_SENSORS_PLOT_DATA
-});
-
 const fillSensorData = (id, lastValues) => ({
     type: FILL_SENSOR_DATA,
-    id,
+    id: id.toString(),
     lastValues
 });
 
 const initStation = stationId => ({
     type: INIT_SENSORS,
-    stationId
+    stationId: stationId.toString()
 });
 
 const setActiveSensor = sensorId => ({
@@ -37,7 +32,7 @@ const setActiveSensor = sensorId => ({
 
 const fetchSensorData = id => ({
     type: FETCH_SENSOR_DATA,
-    id
+    id: id.toString()
 });
 
 
@@ -46,7 +41,6 @@ export {
     fetchSensorData,
     setActiveSensor,
     fillSensorData,
-    fetchSensorSucceeded,
-    fetchSensorsPlotData
+    fetchSensorSucceeded
 };
 
