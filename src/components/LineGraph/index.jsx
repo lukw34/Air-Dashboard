@@ -32,7 +32,6 @@ class LineGraph extends React.PureComponent {
 
     static selectY = ({value}) => value;
 
-
     getXAxis = () => d3AxisBottom()
         .scale(this.getXScale())
         .ticks(this.props.data.length / 2);
