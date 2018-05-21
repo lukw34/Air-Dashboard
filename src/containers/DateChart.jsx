@@ -31,7 +31,7 @@ class DateChart extends React.PureComponent {
     render() {
         const {isPlot} = this.props;
         return isPlot ? this.renderChart() : (<InfoBar
-            text="Select station to see chart..."
+            text="Select station to see chart"
         />);
     }
 }

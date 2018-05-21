@@ -4,6 +4,7 @@ import {
     FETCH_SENSORS_SUCCEEDED,
     FETCH_SENSOR_DATA,
     FILL_SENSOR_DATA,
+    SET_SUMMARY
 } from '../constants/actions';
 
 const fetchSensorSucceeded = (stationId, sensors, activeSensor) => ({
@@ -36,10 +37,16 @@ const fetchSensorData = id => ({
 });
 
 
+const setSummary = summary => ({
+    type: SET_SUMMARY,
+    summary,
+});
+
 export {
     initStation,
     fetchSensorData,
     setActiveSensor,
+    setSummary,
     fillSensorData,
     fetchSensorSucceeded
 };

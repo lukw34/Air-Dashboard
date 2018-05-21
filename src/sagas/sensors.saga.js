@@ -2,7 +2,7 @@ import {call, put, takeLatest, takeEvery} from 'redux-saga/effects';
 
 import Api from '../utils/Api';
 import {INIT_SENSORS, FETCH_SENSOR_DATA} from '../constants/actions';
-import {fetchSensorSucceeded, fillSensorData} from '../actions/sensors.actions';
+import {fetchSensorSucceeded, fillSensorData, setSummary} from '../actions/sensors.actions';
 import {setPlotData} from '../actions/plot.actions';
 
 function* fetchSensors({stationId}) {
@@ -42,9 +42,19 @@ function* fetchSensorData({id}) {
     }
 }
 
+function* fetchSummary({stationId}) {
+    try {
+        const {stIndexLevel: summary} = yield call(Api, `/pjp-api/rest/aqindex/getIndex/${stationId}`);
+        console.log(summary);
+        yield put(setSummary(summary));
+    } catch (e) {
+        console.log(e);
+    }
+}
 
 function* saga() {
     yield takeLatest(INIT_SENSORS, fetchSensors);
+    yield takeLatest(INIT_SENSORS, fetchSummary);
     yield takeEvery(FETCH_SENSOR_DATA, fetchSensorData);
 }
 

@@ -1,0 +1,42 @@
+.Summary {
+  min-height: 75px;
+  transform: translateY(110vh);
+  transition: transform 1.5s ease-in-out;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 50px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  span {
+    margin-left: 15px;
+    text-transform: uppercase;
+  }
+
+  &.class-0 {
+    background-color: green;
+  }
+
+  &.class-1 {
+    background-color: #a8c120;
+  }
+
+  &.class-2 {
+    background-color: darkorange;
+  }
+
+  &.class-3 {
+    background-color: #8b270d;
+  }
+
+  &.class--1 {
+    color: black
+  }
+
+  &.active {
+    transform: translateY(0);
+  }
+}

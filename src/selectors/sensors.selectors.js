@@ -23,8 +23,16 @@ const selectActiveSensorTitle = createSelector(
     ({paramCode, paramName}) => `${paramCode} - ${paramName}`
 );
 
+const getSummary = ({sensors: {summary}}) => summary;
+
+const summarySelector = createSelector(
+    getSummary,
+    summary => summary
+);
+
 export {
     selectSensors,
+    summarySelector,
     getActiveSensor,
     selectActiveSensorTitle
 };

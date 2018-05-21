@@ -5,6 +5,7 @@ import Stats from '../../containers/Stats';
 import MainChart from '../MainChart';
 import SideBox from '../SideBox';
 import SearchInput from '../../containers/SearchInput';
+import Summary from '../../containers/Summary';
 
 import './Dasboard.scss';
 
@@ -17,6 +18,7 @@ const Dashboard = ({sensors = [], onSideBoxClick}) => (
                 type="PM10"
                 sensorId="123"
             />
+            <Summary />
         </div>
         <div className="side-chart-container">
             {sensors.map(box => <SideBox onClick={onSideBoxClick} key={box.id} {...box} />)}
