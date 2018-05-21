@@ -38,6 +38,23 @@ const getMinValue = createSelector(
     values => (values.length > 0 ? Math.min.apply(null, values).toFixed(3) : null)
 );
 
+const getMedianValue = createSelector(
+    getValues,
+    (values) => {
+        if (values.length > 0) {
+            const sortedValue = values.sort((a, b) => a - b);
+            const half = Math.floor(values.length / 2);
+
+            if (values.length % 2) {
+                return sortedValue[half];
+            }
+            return ((sortedValue[half - 1] + sortedValue[half]) / 2).toFixed(3);
+        }
+
+        return null;
+    }
+);
+
 const getAverageValue = createSelector(
     getValues,
     values => (values.length > 0 ? (values.reduce((last, val) => last + val, 0) / values.length).toFixed(3) : null)
@@ -50,6 +67,7 @@ const isLoaderSelector = createSelector(
 
 export {
     isPlotInit,
+    getMedianValue,
     isLoaderSelector,
     activePlotData,
     getMaxValue,
