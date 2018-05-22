@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Stats from '../../containers/Stats';
 import MainChart from '../MainChart';
 import SideBox from '../SideBox';
+
 import SearchInput from '../../containers/SearchInput';
 import Summary from '../../containers/Summary';
 

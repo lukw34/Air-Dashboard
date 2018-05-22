@@ -46,7 +46,7 @@ const getMedianValue = createSelector(
             const half = Math.floor(values.length / 2);
 
             if (values.length % 2) {
-                return sortedValue[half];
+                return sortedValue[half].toFixed(3);
             }
             return ((sortedValue[half - 1] + sortedValue[half]) / 2).toFixed(3);
         }

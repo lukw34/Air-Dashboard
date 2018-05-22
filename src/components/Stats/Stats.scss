@@ -9,24 +9,6 @@
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
-    .item {
-      justify-content: center;
-      display: flex;
-      flex-direction: column;
-      font-size: 1.8rem;
-      font-family: sans-serif;
-      animation: 1s ease-out 0s 1 slideInFromLeft;
-      flex: 1 1 auto;
-      color: white;
-      border-bottom: white 3.5px solid;
-      &:before {
-        content: attr(data-name);
-        font-size: 2rem;
-        text-transform: uppercase;
-        font-weight: 600;
-        margin-bottom: 15px;
-      }
-    }
   }
 
   footer {

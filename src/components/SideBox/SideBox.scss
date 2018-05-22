@@ -20,7 +20,7 @@
   }
   .value-container {
     padding: 5px 45px;
-    font-size: 15px;
+    font-size: 16px;
     border-top: white 2px solid;
     flex-direction: column;
     display: flex;
@@ -41,13 +41,14 @@
     }
 
     .rate {
-      width: 40px;
+      width: 42px;
       margin: 5px;
-      line-height: 40px;
+      line-height: 42px;
       border-radius: 50%;
       text-align: center;
-      font-size: 12px;
+      font-size: 14px;
       padding: 2px;
+      font-weight: bold;
       transition: transform .4s 1s ease-in-out;
       transform: scale(0);
       border: 2px solid #666;

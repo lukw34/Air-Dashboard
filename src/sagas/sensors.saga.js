@@ -45,7 +45,6 @@ function* fetchSensorData({id}) {
 function* fetchSummary({stationId}) {
     try {
         const {stIndexLevel: summary} = yield call(Api, `/pjp-api/rest/aqindex/getIndex/${stationId}`);
-        console.log(summary);
         yield put(setSummary(summary));
     } catch (e) {
         console.log(e);

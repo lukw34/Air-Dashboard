@@ -8,7 +8,7 @@ const SideBox = ({paramCode, id, onClick, lastValues, isActive = false, paramNam
     const [value = 0, penultimateValue] = values;
     let rate = null;
     if (penultimateValue) {
-        rate = (((value / penultimateValue) - 1) * 100).toFixed(2);
+        rate = (((value / penultimateValue) - 1) * 100).toFixed(1);
     }
 
     return (

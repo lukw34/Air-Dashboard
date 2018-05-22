@@ -1,26 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import StatItem from '../StatItem';
 import './Stats.scss';
 
 const Stats = ({min, max, average, median}) => (
     <div className="Stats">
         <div className="items">
-            <div className="item" data-name="min">
-                {min || '?'}
-            </div>
-            <div className="item" data-name="max">
-                {max || '?'}
-            </div>
-            <div className="item" data-name="avg">
-                {average || '?'}
-            </div>
-            <div className="item" data-name="median">
-                {median || '?'}
-            </div>
+            <StatItem value={min} name="min" />
+            <StatItem value={max} name="max" />
+            <StatItem value={average} name="average" />
+            <StatItem value={median} name="median" />
         </div>
     </div>
 );
+
 
 Stats.propTypes = {
     min: PropTypes.string,
