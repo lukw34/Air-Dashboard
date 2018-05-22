@@ -1,7 +1,29 @@
+@mixin arrow-up() {
+  border: solid darkgrey;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 6px;
+  transform: rotate(-135deg);
+}
+
 .InfoBar {
+  &:before {
+    content: ' ';
+    @include arrow-up();
+    margin-right: 20px;
+  }
+
+  &:after {
+    content: ' ';
+    @include arrow-up();
+    margin-left: 30px;
+  }
+
   text-align: center;
   font-size: 1.4rem;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: darkgrey;
+  padding: 24px;
   text-shadow: 0 1px 1px rgba(62, 62, 62, 0.5);
 }
+

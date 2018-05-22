@@ -4,7 +4,7 @@ Dashboard
 
 In this dashboard you can select station and saw statistics about air clarity.
 In the middle section is chart with daily data and on the left and right sides are indicators which provide more informations.
-This dashboard use data provided by 
+This dashboard use data provided by **http://powietrze.gios.gov.pl**
 
 ### Libraries
 
